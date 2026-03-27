@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Kolapalli Hema Pulleswararao | B.Tech CSE Portfolio</title>
+    <link rel="stylesheet" href="pkstyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script>
+        function openModal(title, embedUrl, directUrl) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalOpenLink').href = directUrl || embedUrl;
+            var src = embedUrl || '';
+            if (src.indexOf('drive.google.com') > -1 && src.indexOf('/preview') === -1)
+                src = src.replace('/view', '') + '/preview';
+            document.getElementById('modalFrame').src = src;
+            document.getElementById('docModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('docModal').classList.remove('open');
+            document.getElementById('modalFrame').src = '';
+            document.body.style.overflow = '';
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="docModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">Document</span>
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-iframe-wrap">
+                <iframe id="modalFrame" src="" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modalOpenLink" target="_blank" class="modal-btn-open">
+                    <i class="fas fa-external-link-alt"></i> Open in New Tab
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="noise-overlay"></div>
+
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <span class="loader-text">Initializing...</span>
+            <div class="loader-bar">
+                <div class="loader-fill" id="loaderFill"></div>
+            </div>
+            <span class="loader-percent" id="loaderPercent">0%</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-name">KHP</span>
+            <span class="logo-bracket">/&gt;</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+            <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+            <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+            <li><a href="#certificates" class="nav-link" data-section="certificates">Certifications</a></li>
+            <li><a href="#resume" class="nav-link" data-section="resume">Resume</a></li>
+            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-orb orb1"></div>
+        <div class="hero-orb orb2"></div>
+        <div class="hero-orb orb3"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-tag reveal-up">
+                    <span class="tag-dot"></span>
+                    <span>Open to Internship and Full-Time Opportunities</span>
+                </div>
+                <h1 class="hero-name reveal-up delay-1">
+                    <span class="name-line">Hi, I'm</span>
+                    <span class="name-highlight">Pullesh Kolapalli</span>
+                </h1>
+                <div class="hero-roles reveal-up delay-2">
+                    <span class="role-static">I'm a&nbsp;</span>
+                    <span class="role-dynamic" id="roleDynamic"></span>
+                    <span class="role-cursor">|</span>
+                </div>
+                <div class="hero-cta reveal-up delay-3">
+                    <a href="#about" class="btn btn-primary"><span>Know More</span><i
+                            class="fas fa-arrow-right"></i></a>
+                    <a href="#certificates" class="btn btn-outline"><i
+                            class="fas fa-certificate"></i><span>Certifications</span></a>
+                </div>
+                <div class="hero-socials reveal-up delay-3">
+                    <a href="https://github.com/pulleshkolapalli" target="_blank" class="social-link" title="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/pulleswararao/" target="_blank" class="social-link"
+                        title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://codolio.com/profile/Pullesh__Kolapalli" target="_blank" class="social-link"
+                        title="Codolio"><i class="fas fa-code"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&to=pulleskolapalli810@gmail.com" target="_blank"
+                        class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://leetcode.com/u/pullesh__kolapalli___/" target="_blank" class="social-link"
+                        title="LeetCode"><i class="fas fa-laptop-code"></i></a>
+                </div>
+            </div>
+            <div class="hero-right reveal-right delay-2">
+                <div class="hero-avatar-wrapper">
+                    <div class="avatar-ring ring-outer"></div>
+                    <div class="avatar-ring ring-middle"></div>
+                    <div class="avatar-img-container">
+                        <img src="./photo2.jpg" alt="Pullesh Kolapalli" class="avatar-img" id="heroPhoto"
+                            onerror="this.style.display='none';document.getElementById('avatarPlaceholder').style.display='flex'" />
+                        <div class="avatar-placeholder" id="avatarPlaceholder">
+                            <div class="avatar-initials-wrap">
+                                <span class="avatar-initials">PK</span>
+                                <span class="avatar-initials-sub">Pullesh Kolapalli</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="avatar-badge badge-top"><i class="fas fa-star"></i><span>B.Tech CSE</span></div>
+                    <div class="avatar-badge badge-bottom"><i class="fas fa-map-marker-alt"></i><span>LPU, Punjab</span>
+                    </div>
+                </div>
+                <div class="float-card card-react"><i class="fab fa-python"></i> Python</div>
+                <div class="float-card card-python"><i class="fas fa-chart-bar"></i> Power BI</div>
+                <div class="float-card card-node"><i class="fas fa-code"></i> C++</div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll down</span>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-strip">
+        <div class="stats-container">
+            <div class="stat-item"><span class="stat-number" data-target="5">0</span><span
+                    class="stat-plus">+</span><span class="stat-label">Projects</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><span class="stat-number" data-target="6">0</span><span
+                    class="stat-plus">+</span><span class="stat-label">Certificates</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><span class="stat-number" data-target="10">0</span><span
+                    class="stat-plus">+</span><span class="stat-label">Technologies</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><span class="stat-number" data-target="150">0</span><span
+                    class="stat-plus">+</span><span class="stat-label">LeetCode Solved</span></div>
+        </div>
+    </section>
+
+    <!-- ABOUT — Two Column -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-eyebrow">Get to know me</span>
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-two-col">
+                <!-- LEFT: text + details -->
+                <div class="about-left-col reveal-left">
+                    <div class="about-intro">
+                        <h3>A Passionate <span class="accent">Data Analyst</span> &amp; <span class="accent">ML
+                                Developer</span></h3>
+                        <p>I am <strong>Kolapalli Hema Pulleswararao</strong>, a B.Tech CSE student at <strong>Lovely
+                                Professional University, Phagwara, Punjab</strong>. I am passionate about Machine
+                            Learning and Data Analytics, and I enjoy solving real-world problems using data.</p>
+                        <p>Currently interning at <strong>Infosys Springboard</strong> building AI-based prediction
+                            models. Solved <strong>150+ LeetCode problems</strong>, completed DSA summer training at
+                            LPU, and advanced to the 2nd round of <strong>ECHO – HackWithVertos 1.0</strong>.</p>
+                    </div>
+                    <div class="about-detail-grid">
+                        <div class="detail-card"><i class="fas fa-graduation-cap"></i>
+                            <div><span class="detail-label">Degree</span><span class="detail-value">B.Tech CSE
+                                    (2023–2027)</span></div>
+                        </div>
+                        <div class="detail-card"><i class="fas fa-university"></i>
+                            <div><span class="detail-label">University</span><span class="detail-value">Lovely
+                                    Professional University</span></div>
+                        </div>
+                        <div class="detail-card"><i class="fas fa-map-marker-alt"></i>
+                            <div><span class="detail-label">From</span><span class="detail-value">Amalapuram, Andhra
+                                    Pradesh</span></div>
+                        </div>
+
+                    </div>
+                    <div class="about-interests">
+                        <span class="interest-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                        <span class="interest-tag"><i class="fas fa-chart-bar"></i> Data Analytics</span>
+                        <span class="interest-tag"><i class="fas fa-terminal"></i> DSA / C++</span>
+                        <span class="interest-tag"><i class="fas fa-chart-pie"></i> Power BI</span>
+                        <span class="interest-tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="interest-tag"><i class="fas fa-cloud"></i> Cloud</span>
+                    </div>
+                </div>
+                <!-- RIGHT: Education Journey -->
+                <div class="about-right-col reveal-right">
+                    <h3 class="edu-title">Education Journey</h3>
+                    <div class="edu-timeline">
+                        <div class="edu-item">
+                            <div class="edu-dot"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="edu-card">
+                                <div class="edu-period">Aug 2023 – Present</div>
+                                <h4 class="edu-degree">B.Tech – CSE</h4>
+                                <p class="edu-place">Lovely Professional University, Punjab &nbsp;|&nbsp; <strong>CGPA:
+                                        6.92</strong></p>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-dot"><i class="fas fa-school"></i></div>
+                            <div class="edu-card">
+                                <div class="edu-period">Jun 2022 – Mar 2023</div>
+                                <h4 class="edu-degree">Intermediate – Science (PCM)</h4>
+                                <p class="edu-place">Sri Chaitanya Junior College, Amalapuram, AP &nbsp;|&nbsp;
+                                    <strong>87%</strong></p>
+                            </div>
+                        </div>
+                        <div class="edu-item">
+                            <div class="edu-dot"><i class="fas fa-book-open"></i></div>
+                            <div class="edu-card">
+                                <div class="edu-period">Jun 2019 – Mar 2020</div>
+                                <h4 class="edu-degree">Secondary School (SSC)</h4>
+                                <p class="edu-place">Z.P.P. Em High School, Amalapuram, AP &nbsp;|&nbsp;
+                                    <strong>82%</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS — Big Icon Cards -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-eyebrow">What I work with</span>
+                <h2 class="section-title">Tech <span class="accent">Stack</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-tabs reveal-up delay-1">
+                <button class="skill-tab active" data-tab="languages">Languages</button>
+                <button class="skill-tab" data-tab="dataml">Data &amp; ML</button>
+                <button class="skill-tab" data-tab="tools">Tools</button>
+                <button class="skill-tab" data-tab="corecs">Core CS</button>
+            </div>
+            <div class="skills-panels">
+                <!-- Languages -->
+                <div class="skills-panel active" id="tab-languages">
+                    <div class="skills-grid-big">
+                        <div class="skill-card-big reveal-up">
+                            <div class="skill-icon-big" style="background:rgba(55,118,171,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                                    alt="Python" /></div>
+                            <span class="skill-name-big">Python</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(0,89,179,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                                    alt="C++" /></div>
+                            <span class="skill-name-big">C++</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(0,89,179,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                            </div>
+                            <span class="skill-name-big">C</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-3">
+                            <div class="skill-icon-big" style="background:rgba(237,117,27,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                                    alt="Java" /></div>
+                            <span class="skill-name-big">Java</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(0,117,143,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                    alt="SQL" /></div>
+                            <span class="skill-name-big">SQL</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(228,77,38,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                                    alt="HTML" /></div>
+                            <span class="skill-name-big">HTML/CSS</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Data & ML -->
+                <div class="skills-panel" id="tab-dataml">
+                    <div class="skills-grid-big">
+                        <div class="skill-card-big reveal-up">
+                            <div class="skill-icon-big" style="background:rgba(55,118,171,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                                    alt="Pandas" /></div>
+                            <span class="skill-name-big">Pandas</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(55,118,171,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+                                    alt="NumPy" /></div>
+                            <span class="skill-name-big">NumPy</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(99,102,241,0.15)"><img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                                    alt="Scikit-learn" /></div>
+                            <span class="skill-name-big">Scikit-learn</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-3">
+                            <div class="skill-icon-big" style="background:rgba(56,189,248,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg"
+                                    alt="Matplotlib" /></div>
+                            <span class="skill-name-big">Matplotlib</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(56,189,248,0.12)"><i
+                                    class="fas fa-chart-area" style="font-size:2.5rem;color:#38BDF8"></i></div>
+                            <span class="skill-name-big">Seaborn</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(255,196,0,0.15)"><i
+                                    class="fas fa-chart-pie" style="font-size:2.5rem;color:#FFC400"></i></div>
+                            <span class="skill-name-big">Power BI</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tools -->
+                <div class="skills-panel" id="tab-tools">
+                    <div class="skills-grid-big">
+                        <div class="skill-card-big reveal-up">
+                            <div class="skill-icon-big" style="background:rgba(240,80,51,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                                    alt="Git" /></div>
+                            <span class="skill-name-big">Git</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(255,255,255,0.06)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                                    alt="GitHub" style="filter:invert(1)" /></div>
+                            <span class="skill-name-big">GitHub</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(0,122,204,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                                    alt="VS Code" /></div>
+                            <span class="skill-name-big">VS Code</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-3">
+                            <div class="skill-icon-big" style="background:rgba(255,210,0,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+                                    alt="Linux" /></div>
+                            <span class="skill-name-big">Ubuntu/Linux</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(33,115,70,0.15)"><i
+                                    class="fas fa-file-excel" style="font-size:2.5rem;color:#1D7348"></i></div>
+                            <span class="skill-name-big">MS Excel</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(99,102,241,0.12)"><i
+                                    class="fas fa-project-diagram" style="font-size:2.5rem;color:#6366f1"></i></div>
+                            <span class="skill-name-big">Plotly/Streamlit</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Core CS -->
+                <div class="skills-panel" id="tab-corecs">
+                    <div class="skills-grid-big">
+                        <div class="skill-card-big reveal-up">
+                            <div class="skill-icon-big" style="background:rgba(0,89,179,0.15)"><i class="fas fa-sitemap"
+                                    style="font-size:2.5rem;color:#0059B3"></i></div>
+                            <span class="skill-name-big">Data Structures</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(97,218,251,0.15)"><i class="fas fa-brain"
+                                    style="font-size:2.5rem;color:#61DAFB"></i></div>
+                            <span class="skill-name-big">Algorithms</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(0,117,143,0.15)"><img
+                                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                                    alt="DBMS" /></div>
+                            <span class="skill-name-big">DBMS</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-3">
+                            <div class="skill-icon-big" style="background:rgba(0,122,204,0.15)"><i class="fas fa-server"
+                                    style="font-size:2.5rem;color:#007ACC"></i></div>
+                            <span class="skill-name-big">Operating Systems</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="72"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-1">
+                            <div class="skill-icon-big" style="background:rgba(104,160,99,0.15)"><i
+                                    class="fas fa-network-wired" style="font-size:2.5rem;color:#68A063"></i></div>
+                            <span class="skill-name-big">Computer Networks</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card-big reveal-up delay-2">
+                            <div class="skill-icon-big" style="background:rgba(55,118,171,0.15)"><i
+                                    class="fas fa-object-group" style="font-size:2.5rem;color:#3776AB"></i></div>
+                            <span class="skill-name-big">OOPS</span>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar" data-width="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-eyebrow">What I've built</span>
+                <h2 class="section-title">My <span class="accent">Projects</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="project-filters reveal-up delay-1">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ml">ML / AI</button>
+                <button class="filter-btn" data-filter="data">Data Analytics</button>
+                <button class="filter-btn" data-filter="other">Other</button>
+            </div>
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card reveal-up" data-category="ml">
+                    <div class="project-img">
+                        <div class="project-thumb thumb-stock">
+                            <div class="thumb-inner">
+                                <i class="fas fa-chart-line thumb-icon-big"></i>
+                                <span class="thumb-text">Stock Market Analysis</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pulleshkolapalli/Stock-Buy-Sell-Analyzer-using-Technical-Indicators-"
+                                target="_blank" class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/pulleshkolapalli/Stock-Buy-Sell-Analyzer-using-Technical-Indicators-"
+                                target="_blank" class="overlay-btn primary"><i class="fas fa-external-link-alt"></i>
+                                View</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span class="project-type ml">ML / AI</span><span
+                                class="project-year">Jan–Feb 2026</span></div>
+                        <h3 class="project-title">Stock Buy/Sell Analyzer</h3>
+                        <p class="project-desc">Buy/Sell signals using MA &amp; RSI. Trading algorithms O(n), O(nk).
+                            Streamlit dashboard for real-time visualization.</p>
+                        <div class="project-tech">
+                            <span>C++</span><span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal-up delay-1" data-category="ml">
+                    <div class="project-img">
+                        <div class="project-thumb thumb-ai">
+                            <div class="thumb-inner">
+                                <i class="fas fa-robot thumb-icon-big"></i>
+                                <span class="thumb-text">AI & Machine Learning</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pulleshkolapalli/AI-Impact-On-Jobs-2030" target="_blank"
+                                class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/pulleshkolapalli/AI-Impact-On-Jobs-2030" target="_blank"
+                                class="overlay-btn primary"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span class="project-type ml">ML / AI</span><span
+                                class="project-year">Oct–Dec 2025</span></div>
+                        <h3 class="project-title">AI Impact on Jobs – 2030</h3>
+                        <p class="project-desc">Job-market datasets to assess AI's impact. ML models estimate automation
+                            risk and classify roles.</p>
+                        <div class="project-tech">
+                            <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal-up delay-2" data-category="data">
+                    <div class="project-img">
+                        <div class="project-thumb thumb-fraud">
+                            <div class="thumb-inner">
+                                <i class="fas fa-shield-alt thumb-icon-big"></i>
+                                <span class="thumb-text">Fraud Detection & Security</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pulleshkolapalli/Fraud-Transaction-Dashboard" target="_blank"
+                                class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/pulleshkolapalli/Fraud-Transaction-Dashboard" target="_blank"
+                                class="overlay-btn primary"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span class="project-type data">Data Analytics</span><span
+                                class="project-year">Nov 2025–Jan 2026</span></div>
+                        <h3 class="project-title">Fraud Transaction Dashboard</h3>
+                        <p class="project-desc">Power BI dashboard with DAX KPIs detecting high-risk fraudulent
+                            transactions across regions.</p>
+                        <div class="project-tech"><span>Power BI</span><span>DAX</span><span>Data Modeling</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal-up delay-3" data-category="data">
+                    <div class="project-img">
+                        <div class="project-thumb thumb-ev">
+                            <div class="thumb-inner">
+                                <i class="fas fa-bolt thumb-icon-big"></i>
+                                <span class="thumb-text">Electric Vehicle Data</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pulleshkolapalli/Electric-Vehicle-Dashboard-EV-" target="_blank"
+                                class="overlay-btn"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/pulleshkolapalli/Electric-Vehicle-Dashboard-EV-" target="_blank"
+                                class="overlay-btn primary"><i class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span class="project-type data">Data Analytics</span><span
+                                class="project-year">Mar–Apr 2025</span></div>
+                        <h3 class="project-title">Electric Vehicle Population Dashboard</h3>
+                        <p class="project-desc">EV population data from 20+ countries. Pivot tables and charts
+                            highlighting growth patterns.</p>
+                        <div class="project-tech"><span>Excel</span><span>Pivot Tables</span><span>Data
+                                Visualization</span></div>
+                    </div>
+                </div>
+                <div class="project-card reveal-up delay-1" data-category="other">
+                    <div class="project-img">
+                        <div class="project-thumb thumb-student">
+                            <div class="thumb-inner">
+                                <i class="fas fa-graduation-cap thumb-icon-big"></i>
+                                <span class="thumb-text">Student Performance</span>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/pulleshkolapalli" target="_blank" class="overlay-btn"><i
+                                    class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/pulleshkolapalli" target="_blank" class="overlay-btn primary"><i
+                                    class="fas fa-external-link-alt"></i> View</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-meta"><span class="project-type other">Python</span><span
+                                class="project-year">Jun–Jul 2025</span></div>
+                        <h3 class="project-title">Student Performance System</h3>
+                        <p class="project-desc">Python &amp; MySQL managing 100+ academic records with modular OOP. 99%
+                            accuracy in mark calculation.</p>
+                        <div class="project-tech"><span>Python</span><span>MySQL</span><span>OOPS</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-more reveal-up">
+                <a href="https://github.com/pulleshkolapalli" target="_blank" class="btn btn-outline"><i
+                        class="fab fa-github"></i><span>View All on GitHub</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section certificates" id="certificates">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-eyebrow">My Achievements</span>
+                <h2 class="section-title">Certifications &amp; <span class="accent">Awards</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card reveal-up"
+                    onclick="openModal('Oracle Data Platform 2025','https://drive.google.com/file/d/1gG8mAftfdUdMrCHVtM1WzsBDlQLnM5YW/preview','https://drive.google.com/file/d/1gG8mAftfdUdMrCHVtM1WzsBDlQLnM5YW/view?usp=sharing')">
+                    <div class="cert-ribbon"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-logo"><i class="fas fa-database" style="color:#F80000;font-size:1.8rem;"></i></div>
+                    <div class="cert-info"><span class="cert-issuer">Oracle</span>
+                        <h4 class="cert-name">Oracle Data Platform 2025 Certified Foundations Associate</h4><span
+                            class="cert-date"><i class="fas fa-calendar-alt"></i> Mar 2026</span><span
+                            class="cert-verify"><i class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal-up delay-1"
+                    onclick="openModal('Infosys – Generative AI','https://drive.google.com/file/d/1G9lBrp_6I98wiIfi7nhkfjxcUcslVO80/preview','https://drive.google.com/file/d/1G9lBrp_6I98wiIfi7nhkfjxcUcslVO80/view')">
+                    <div class="cert-ribbon"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-logo"><i class="fas fa-brain" style="color:#0066CC;font-size:1.8rem;"></i></div>
+                    <div class="cert-info"><span class="cert-issuer">Infosys Springboard</span>
+                        <h4 class="cert-name">Principles of Generative AI Certification</h4><span class="cert-date"><i
+                                class="fas fa-calendar-alt"></i> Dec 2025</span><span class="cert-verify"><i
+                                class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal-up delay-2"
+                    onclick="openModal('NPTEL – Cloud Computing','https://drive.google.com/file/d/1hkMLu1FXSSNs6CF9S5W284izdivInpzs/preview','https://drive.google.com/file/d/1hkMLu1FXSSNs6CF9S5W284izdivInpzs/view')">
+                    <div class="cert-ribbon"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-logo"><i class="fas fa-cloud" style="color:#0078D4;font-size:1.8rem;"></i></div>
+                    <div class="cert-info"><span class="cert-issuer">NPTEL</span>
+                        <h4 class="cert-name">Cloud Computing Certification</h4><span class="cert-date"><i
+                                class="fas fa-calendar-alt"></i> Oct 2025</span><span class="cert-verify"><i
+                                class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal-up delay-3"
+                    onclick="openModal('Coursera – Computer Networking','https://drive.google.com/file/d/1KYqps4fGsvCUbTgwne4T1C8Q_DppZvB3/preview','https://drive.google.com/file/d/1KYqps4fGsvCUbTgwne4T1C8Q_DppZvB3/view')">
+                    <div class="cert-ribbon"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-logo"><i class="fas fa-network-wired" style="color:#1E88E5;font-size:1.8rem;"></i>
+                    </div>
+                    <div class="cert-info"><span class="cert-issuer">Coursera</span>
+                        <h4 class="cert-name">Bits and Bytes of Computer Networking</h4><span class="cert-date"><i
+                                class="fas fa-calendar-alt"></i> May 2025</span><span class="cert-verify"><i
+                                class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal-up delay-1"
+                    onclick="openModal('Iamnleo – DSA','https://drive.google.com/file/d/1EI-VoSVFTCUNvktzckz1hw-651kZRmbO/preview','https://drive.google.com/file/d/1EI-VoSVFTCUNvktzckz1hw-651kZRmbO/view')">
+                    <div class="cert-ribbon gold"><i class="fas fa-star"></i></div>
+                    <div class="cert-logo"><i class="fas fa-code" style="color:#f59e0b;font-size:1.8rem;"></i></div>
+                    <div class="cert-info"><span class="cert-issuer">Iamnleo</span>
+                        <h4 class="cert-name">Data Structures and Algorithms</h4><span class="cert-date"><i
+                                class="fas fa-calendar-alt"></i> Dec 2024</span><span class="cert-verify"><i
+                                class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+                <div class="cert-card reveal-up delay-2"
+                    onclick="openModal('Free Code Camp – Web Design','https://drive.google.com/file/d/1dXPNqC8RqvX9UyC0huTruGBUYg935ceP/preview','https://drive.google.com/file/d/1dXPNqC8RqvX9UyC0huTruGBUYg935ceP/view')">
+                    <div class="cert-ribbon"><i class="fas fa-certificate"></i></div>
+                    <div class="cert-logo"><i class="fas fa-globe" style="color:#198C19;font-size:1.8rem;"></i></div>
+                    <div class="cert-info"><span class="cert-issuer">Free Code Camp</span>
+                        <h4 class="cert-name">Responsive Web Design</h4><span class="cert-date"><i
+                                class="fas fa-calendar-alt"></i> Oct 2023</span><span class="cert-verify"><i
+                                class="fas fa-eye"></i> Click to View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESUME -->
+    <section class="section resume-section" id="resume">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">My <span class="accent">Resume</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="resume-content reveal-up delay-1">
+                <div class="resume-card">
+                    <div class="resume-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="resume-info">
+                        <h3>Kolapalli Hema Pulleswararao</h3>
+                        <p>B.Tech CSE &nbsp;|&nbsp; Data Analytics &amp; ML &nbsp;|&nbsp; Infosys Intern</p>
+                        <p class="resume-meta">Last updated: March 2026</p>
+                    </div>
+                    <div class="resume-actions">
+                        <a href="javascript:void(0)"
+                            onclick="openModal('Resume – Pullesh Kolapalli','https://drive.google.com/file/d/1qlAsZU5fggXMJFhRvbZKV5ztQv02sVdg/preview','https://drive.google.com/file/d/1qlAsZU5fggXMJFhRvbZKV5ztQv02sVdg/view?usp=sharing')"
+                            class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Resume
+                        </a>
+                        <a href="https://drive.google.com/uc?export=download&id=1qlAsZU5fggXMJFhRvbZKV5ztQv02sVdg"
+                            class="btn btn-outline">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-eyebrow">Let's connect</span>
+                <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-left reveal-left">
+                    <h3 class="contact-headline">Have an opportunity or project in mind?</h3>
+                    <p class="contact-subtext">Looking for internships and opportunities in Data Analytics, Machine
+                        Learning, and Python development. My inbox is always open.</p>
+                    <div class="contact-info-list">
+                        <a href="https://mail.google.com/mail/?view=cm&to=pulleskolapalli810@gmail.com" target="_blank"
+                            class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="ci-text"><span class="ci-label">Email</span><span
+                                    class="ci-value">pulleskolapalli810@gmail.com</span></div>
+                        </a>
+                        <a href="tel:+919573923346" class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="ci-text"><span class="ci-label">Phone</span><span class="ci-value">+91
+                                    9573923346</span></div>
+                        </a>
+                        <div class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="ci-text"><span class="ci-label">Location</span><span
+                                    class="ci-value">Amalapuram, Andhra Pradesh</span></div>
+                        </div>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="https://github.com/pulleshkolapalli" target="_blank" class="cs-btn github"><i
+                                class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/pulleswararao/" target="_blank" class="cs-btn linkedin"><i
+                                class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        <a href="https://codolio.com/profile/Pullesh__Kolapalli" target="_blank"
+                            class="cs-btn codolio"><i class="fas fa-code-branch"></i> Codolio</a>
+                    </div>
+                </div>
+                <div class="contact-right reveal-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group"><label>Your Name</label><input type="text" name="name"
+                                    placeholder="John Doe" required /></div>
+                            <div class="form-group"><label>Your Email</label><input type="email" name="email"
+                                    placeholder="john@email.com" required /></div>
+                        </div>
+                        <div class="form-group"><label>Subject</label><input type="text" name="subject"
+                                placeholder="Internship / Project Collab" required /></div>
+                        <div class="form-group"><label>Message</label><textarea name="message" rows="5"
+                                placeholder="Hi Pullesh! I'd like to discuss..." required></textarea></div>
+                        <button type="submit" class="btn btn-primary contact-submit" id="submitBtn">
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i>
+                                Sending...</span>
+                        </button>
+                        <div class="form-success" id="formSuccess"><i class="fas fa-check-circle"></i> Message sent!
+                            I'll reply soon.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo"><span class="logo-bracket">&lt;</span><span class="logo-name">Pullesh
+                    Kolapalli</span><span class="logo-bracket">/&gt;</span></div>
+            <p class="footer-tagline">Building the future, one commit at a time.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/pulleshkolapalli" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/pulleswararao/" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://codolio.com/profile/Pullesh__Kolapalli" target="_blank"><i
+                        class="fas fa-code-branch"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&to=pulleskolapalli810@gmail.com" target="_blank"><i
+                        class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p class="footer-copy">© <span id="footerYear"></span> <strong>Kolapalli Hema Pulleswararao</strong>. Built
+                with <span class="heart">♥</span> by Pullesh.</p>
+            <div class="footer-nav"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a
+                    href="#contact">Contact</a></div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="pscript.js"></script>
+</body>
+
+</html>
